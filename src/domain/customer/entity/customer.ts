@@ -1,4 +1,5 @@
 import EventDispatcher from "../../@shared/event/event-dispatcher";
+import CustomerChangedAddressEvent from "../event/customer-changed-address.event";
 import CustomerCreatedEvent from "../event/customer-created.event";
 import Address from "../value-object/address";
 
@@ -48,6 +49,7 @@ export default class Customer {
 
   changeAddress(address: Address) {
     this._address = address;
+    EventDispatcher.getInstance().notify(new CustomerChangedAddressEvent(this));
   }
 
   isActive(): boolean {

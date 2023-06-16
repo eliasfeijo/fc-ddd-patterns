@@ -5,6 +5,9 @@ export default class CustomerChangedAddressLogHandler
   implements EventHandlerInterface
 {
   handle(event: CustomerCreatedEvent) {
-    console.log("Endereço do cliente: {id}, {nome} alterado para: {endereco}");
+    const { id, name, address } = event.eventData;
+    console.log(
+      `Endereço do cliente: ${id}, ${name} alterado para: ${address}`
+    );
   }
 }
