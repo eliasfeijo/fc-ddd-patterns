@@ -10,12 +10,12 @@ export default class Customer {
   constructor(
     id: string,
     name: string,
-    onCreated?: (customer: Customer) => void
+    onSuccess?: (customer: Customer) => void
   ) {
     this._id = id;
     this._name = name;
     this.validate();
-    onCreated && onCreated(this);
+    onSuccess && onSuccess(this);
   }
 
   get id(): string {
