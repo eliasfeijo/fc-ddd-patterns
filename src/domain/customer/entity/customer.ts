@@ -7,10 +7,15 @@ export default class Customer {
   private _active: boolean = false;
   private _rewardPoints: number = 0;
 
-  constructor(id: string, name: string) {
+  constructor(
+    id: string,
+    name: string,
+    onCreated?: (customer: Customer) => void
+  ) {
     this._id = id;
     this._name = name;
     this.validate();
+    onCreated && onCreated(this);
   }
 
   get id(): string {
@@ -42,7 +47,7 @@ export default class Customer {
   get Address(): Address {
     return this._address;
   }
-  
+
   changeAddress(address: Address) {
     this._address = address;
   }
